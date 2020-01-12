@@ -73,11 +73,19 @@ class CategoryController extends BaseController
      * @return \Illuminate\Http\Response
      */
 
-    public function edit($id)
+    public function edit($id, BlogCategoryRepository $categoryRepository)
     {
-        $item = BlogCategory::findOrFail($id);
-        $categoryList = BlogCategory::all();
-        return view('blog.admin.categories.edit',compact('item', 'categoryList'));
+       // $item = BlogCategory::findOrFail($id);
+       // $categoryList = BlogCategory::all();
+
+        $item = $categoryRepository->getEdit($id);
+        if(empty($item)){abort(404);}
+
+
+        $categoryList = $categoryRepository->getForComboBox();
+
+        return view('blog.admin.categories.edit',
+            compact('item', 'categoryList'));
     }
 
     /**
