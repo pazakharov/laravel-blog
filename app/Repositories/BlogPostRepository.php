@@ -12,7 +12,7 @@ class BlogPostRepository extends CoreRepository
 
  * @param int $id
  *
- * @return Model
+ * @return string
  *
  */
     protected function getModelClass(){
@@ -42,6 +42,15 @@ class BlogPostRepository extends CoreRepository
             ->paginate(25);
 
         return $result;
+    }
+
+    /**
+     * @param $id
+     * @return Model
+     */
+    public function getEdit($id)
+    {
+        return $this->startConditions()->find($id);
     }
 
 }
