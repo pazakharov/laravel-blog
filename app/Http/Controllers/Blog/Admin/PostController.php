@@ -103,7 +103,7 @@ class PostController extends BaseController
      */
     public function update(Request $request, $id)
     {
-        //
+        dd(__METHOD__, $request->all(), $id);
     }
 
     /**

@@ -72,7 +72,7 @@ class PostController extends BaseController
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
