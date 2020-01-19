@@ -31,7 +31,7 @@
                         <input type="text" value="{{ $item->updated_at }}" class="form-control" disabled>
                     </div>
                     <div class="form-group"><label for="">Опубликовано</label>
-                        <input type="text" value="{{ $item->published_ad }}" class="form-control" disabled>
+                        <input type="text" value="{{ $item->published_at }}" class="form-control" disabled>
                     </div>
                 </div>
             </div>
