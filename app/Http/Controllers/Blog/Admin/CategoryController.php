@@ -6,7 +6,7 @@ use App\Http\Requests\BlogCategoryCreateRequest;
 use App\Http\Requests\BlogCategoryUpdateRequest;
 use App\Models\BlogCategory;
 use App\Repositories\BlogCategoryRepository;
-use Illuminate\Http\Request;
+
 
 class CategoryController extends BaseController
 {
@@ -71,11 +71,9 @@ class CategoryController extends BaseController
 
         //создать объект но не писать в базу
 
-      //  $item = new BlogCategory($data);
-      //  dd($item);
-      //  $item->save();
+        $item = new BlogCategory($data);
 
-        $item = (new BlogCategory())->create($data);
+        $item->save();
 
         if($item){
             return redirect()->route('blog.admin.categories.edit', [$item->id])
@@ -90,7 +88,8 @@ class CategoryController extends BaseController
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     * @param BlogCategoryRepository $categoryRepository
      * @return \Illuminate\Http\Response
      */
 
@@ -129,6 +128,9 @@ class CategoryController extends BaseController
 
 
         //$item = BlogCategory::find($id);
+
+        /** @var BlogCategory $item */
+
         $item = $this->blogCategoryRepository->getEdit($id);
 
 
