@@ -63,9 +63,11 @@ class CategoryController extends BaseController
     public function store(BlogCategoryCreateRequest $request)
     {
         $data = $request->input();
+
+        /*Ушло в обсервер
         if(empty($data['slug'])){
             $data['slug'] = str_slug($data['title']);
-        }
+        }*/
 
         //создать объект но не писать в базу
 
@@ -74,6 +76,7 @@ class CategoryController extends BaseController
       //  $item->save();
 
         $item = (new BlogCategory())->create($data);
+
         if($item){
             return redirect()->route('blog.admin.categories.edit', [$item->id])
                 ->with(['success' => 'Успешно сохранено']);
@@ -126,7 +129,7 @@ class CategoryController extends BaseController
 
 
         //$item = BlogCategory::find($id);
-        $item = $this->blogCategoryRepository->getEdit();
+        $item = $this->blogCategoryRepository->getEdit($id);
 
 
         if (empty($item)){
