@@ -27,7 +27,7 @@
                     <div class="tab-pane active" id="maindata" role="tabpanel">
                         <div class="form-group">
                             <label for="title"> Заголовок </label>
-                            <input name="title" value="{{ $item->title }}"
+                            <input name="title" value="{{ old('title',$item->title) }}"
                                    id="title"
                                    type="text"
                                    class="form-control"
@@ -39,9 +39,7 @@
                             <textarea name="content_raw"
                                       id="content_raw"
                                       class="form-control"
-                                      rows="10">
-                                {{ old('content_raw',$item->content_raw) }}
-                            </textarea>
+                                      rows="10">{{ old('content_raw',$item->content_raw) }}</textarea>
                         </div>
                     </div>
 

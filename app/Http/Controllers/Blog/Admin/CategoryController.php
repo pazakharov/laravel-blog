@@ -64,13 +64,6 @@ class CategoryController extends BaseController
     {
         $data = $request->input();
 
-        /*Ушло в обсервер
-        if(empty($data['slug'])){
-            $data['slug'] = str_slug($data['title']);
-        }*/
-
-        //создать объект но не писать в базу
-
         $item = new BlogCategory($data);
 
         $item->save();

@@ -3,6 +3,7 @@
         <div class="card">
             <div class="card-body">
                 <button type="submit" class="btn btn-primary">Сохранить</button>
+                <a href=" {{route('blog.admin.posts.index')}} " class="btn btn-link">Назад</a>
             </div>
         </div>
     </div>
