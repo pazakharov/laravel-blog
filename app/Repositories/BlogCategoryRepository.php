@@ -15,7 +15,9 @@ class BlogCategoryRepository extends CoreRepository
  *
  */
     protected function getModelClass(){
+
         return Model::class;
+
     }
 
     public function getEdit($id){
@@ -57,6 +59,9 @@ class BlogCategoryRepository extends CoreRepository
         $result = $this
             ->startConditions()
             ->select($columns)
+            ->with([
+                'parentCategory:id,title',
+                ])
             ->paginate($perPage);
 
         return $result;

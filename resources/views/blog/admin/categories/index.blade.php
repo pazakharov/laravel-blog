@@ -19,7 +19,7 @@
                            </thead>
                            <tbody>
                            @foreach($paginator as $item)
-                               @php /** @var \App\Models\BlogCategory $item **/ @endphp
+                               @php /** @var BlogCategory $item **/ @endphp
                                <tr>
                                    <td>{{ $item->id }}</td>
                                    <td>
@@ -28,7 +28,7 @@
                                        </a>
                                    </td>
                                    <td @if(in_array($item->parent_id, [0,1])) style="color:#ccc" @endif>
-                                       {{ $item->parent_id }}
+                                       {{ $item->parentTitle }}
                                    </td>
                                </tr>
                                @endforeach
