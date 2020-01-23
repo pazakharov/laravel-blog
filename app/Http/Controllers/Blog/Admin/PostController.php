@@ -166,11 +166,11 @@ class PostController extends BaseController
     {
 //        Софт-удаление , данные остаются в бд
 
-//        $result = BlogPost::destroy($id);
+        $result = BlogPost::destroy($id);
 
 //        Удаление из базы
 
-        $result = BlogPost::find($id)->forcedelete();
+//        $result = BlogPost::find($id)->forcedelete();
 
         if($result){
             return redirect()
