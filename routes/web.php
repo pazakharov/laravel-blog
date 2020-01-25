@@ -24,6 +24,12 @@ Route::group(['namespace' => 'Blog', 'prefix' => 'blog'], function (){
     Route::resource('posts','PostController')->names('blog.posts');
 });
 
+Route::group(['prefix' => 'digging_deeper'], function(){
+    Route::get('collections','DiggingDipperController@collections')
+        ->name('digging_deeper.collections');
+});
+
+
 //Blog admin routes
 $groupData = [
     'namespace' => 'Blog\Admin',
